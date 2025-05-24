@@ -1,5 +1,7 @@
 package com.rodi.Ecommerce_App.service;
 
+import com.rodi.Ecommerce_App.exception.APIException;
+import com.rodi.Ecommerce_App.exception.ResourceNotFoundException;
 import com.rodi.Ecommerce_App.model.Category;
 import com.rodi.Ecommerce_App.payload.CategoryDTO;
 import com.rodi.Ecommerce_App.payload.CategoryResponse;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
