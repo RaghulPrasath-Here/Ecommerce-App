@@ -6,4 +6,6 @@ import com.rodi.Ecommerce_App.payload.ProductResponse;
 public interface ProductService {
 
     ProductDTO addProducts(ProductDTO productDTO, Long categoryId);
+
+    ProductResponse getAllProducts(Integer pageNumber, Integer pageSize, String sortBy, String sortOrder);
 }
