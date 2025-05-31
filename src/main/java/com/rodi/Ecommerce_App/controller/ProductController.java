@@ -38,6 +38,15 @@ public class ProductController {
         return new ResponseEntity<>(productService.getCategoryProducts(categoryId, pageNumber, pageSize, sortBy, sortOrder), HttpStatus.OK);
     }
 
+    @GetMapping("public/products/keyword/{keyword}")
+    public ResponseEntity<ProductResponse> getProductsByKeyword(@PathVariable String keyword,
+            @RequestParam(name = "pageNumber", defaultValue = AppConstants.PAGE_NUMBER, required = false) Integer pageNumber,
+            @RequestParam(name = "pageSize", defaultValue = AppConstants.PAGE_SIZE, required = false) Integer pageSize,
+            @RequestParam(name = "sortBy", defaultValue = AppConstants.SORT_PRODUCTS_BY, required = false) String sortBy,
+            @RequestParam(name = "sortOrder", defaultValue = AppConstants.sortOrder, required = false) String sortOrder){
+        return new ResponseEntity<>(productService.getProductsByKeyword(keyword, pageNumber, pageSize, sortBy, sortOrder), HttpStatus.FOUND);
+    }
+
     @DeleteMapping("admin/products/{productId}")
     public ResponseEntity<ProductDTO> updateProduct(@Valid @PathVariable Long productId){
         return new ResponseEntity<>(productService.deleteProduct(productId), HttpStatus.OK);
