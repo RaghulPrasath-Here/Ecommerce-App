@@ -49,6 +49,10 @@ public class ProductController {
             @RequestParam(name = "sortOrder", defaultValue = AppConstants.sortOrder, required = false) String sortOrder){
         return new ResponseEntity<>(productService.getProductsByKeyword(keyword, pageNumber, pageSize, sortBy, sortOrder), HttpStatus.FOUND);
     }
+    @PutMapping("admin/products/{productId}")
+    public ResponseEntity<ProductDTO> updateProduct(@RequestBody ProductDTO productDTO, @PathVariable Long productId){
+        return new ResponseEntity<>(productService.updateProduct(productDTO, productId), HttpStatus.OK);
+    }
 
     @DeleteMapping("admin/products/{productId}")
     public ResponseEntity<ProductDTO> deleteProduct(@Valid @PathVariable Long productId){
